@@ -24,7 +24,15 @@ router.get("/", function (req, res) {
 
 // show
 router.get("/:id", (req, res) => {
-  res.send("Dettagli del post " + req.params.id);
+  const id = parseInt(req.params.id);
+
+  const post = posts.find((post) => post.id === id);
+
+  if (post) {
+    res.json(post);
+  } else {
+    res.status(418).json({ error: "Post non trovato, sono solo una teiera" });
+  }
 });
 
 //store (create)
