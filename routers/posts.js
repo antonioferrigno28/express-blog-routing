@@ -24,12 +24,22 @@ router.get("/", function (req, res) {
 
 // show
 router.get("/:id", (req, res) => {
-  res.send("Dettagli dei post" + req.params.id);
+  res.send("Dettagli del post " + req.params.id);
 });
 
 //store (create)
 router.post("/", (req, res) => {
   res.send("Creazione nuovo post");
+});
+
+// update
+router.put("/:id", (req, res) => {
+  res.send("Modifica per intero dell'elemento " + req.params.id);
+});
+
+// destroy
+router.delete("/:id", function (req, res) {
+  res.send("Eliminazione del post " + req.params.id);
 });
 
 module.exports = router;
